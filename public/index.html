@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎭 Random Joke Service</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-emoji">🎭</span>
+        <span class="logo-text">Random Joke Service</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Category Filters -->
+    <section class="categories" aria-label="Joke categories">
+      <button class="cat-btn active" data-cat="Any">🎲 All</button>
+      <button class="cat-btn" data-cat="Programming">💻 Programming</button>
+      <button class="cat-btn" data-cat="Pun">😜 Pun</button>
+      <button class="cat-btn" data-cat="Misc">🎪 Misc</button>
+      <button class="cat-btn" data-cat="Dark">🖤 Dark</button>
+      <button class="cat-btn" data-cat="Spooky">👻 Spooky</button>
+      <button class="cat-btn" data-cat="Christmas">🎄 Christmas</button>
+    </section>
+
+    <!-- Joke Card -->
+    <div class="card-wrapper">
+      <div class="joke-card" id="jokeCard" aria-live="polite">
+        <div class="card-category" id="cardCategory">— Joke —</div>
+
+        <div class="joke-body" id="jokeBody">
+          <p class="joke-text" id="jokeSetup">Click the button below to get your first joke! 😄</p>
+          <p class="joke-punchline hidden" id="jokePunchline"></p>
+        </div>
+
+        <!-- Reveal button (only for two-part jokes) -->
+        <button class="reveal-btn hidden" id="revealBtn">
+          <span>👀 Reveal Punchline</span>
+        </button>
+
+        <!-- Loading spinner -->
+        <div class="spinner hidden" id="spinner">
+          <div class="spinner-ring"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button class="btn btn-primary" id="getJokeBtn">
+        <span class="btn-icon">😂</span> Get Joke
+      </button>
+      <button class="btn btn-secondary" id="copyBtn" title="Copy joke to clipboard">
+        <span class="btn-icon">📋</span> Copy
+      </button>
+    </div>
+
+    <!-- Joke Counter -->
+    <div class="counter">
+      <span>Jokes told: <strong id="jokeCount">0</strong></span>
+      <span class="shortcut-hint">Press <kbd>Space</kbd> or <kbd>Enter</kbd> for next joke</span>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast hidden" id="toast"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Powered by <a href="https://jokeapi.dev/" target="_blank" rel="noopener">JokeAPI v2</a> &mdash; free &amp; open jokes API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const fetch = require("node-fetch");
 const cors = require("cors");
 const path = require("path");
@@ -10,7 +10,8 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static frontend files
+// Serve index.html from root, and static assets (CSS/JS) from public/
+app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Valid JokeAPI categories
@@ -74,9 +75,9 @@ app.get("/api/categories", (req, res) => {
   res.json({ categories: VALID_CATEGORIES });
 });
 
-// Fallback: serve index.html for any other route
+// Fallback: serve index.html from root for any other route
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Start server

@@ -10,9 +10,8 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve index.html from root, and static assets (CSS/JS) from public/
+// Serve static files from root (index.html) and public/ (CSS, JS)
 app.use(express.static(path.join(__dirname)));
-app.use(express.static(path.join(__dirname, "public")));
 
 // Valid JokeAPI categories
 const VALID_CATEGORIES = ["Any", "Programming", "Misc", "Dark", "Pun", "Spooky", "Christmas"];
